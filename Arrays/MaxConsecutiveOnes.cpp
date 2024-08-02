@@ -28,3 +28,19 @@ public:
 
 // TC: O(N)
 // SC: O(1)
+
+int findMaxConsecutiveOnes(vector<int>& nums) {
+    int pos = 0, mx=0, n=nums.size();
+    
+    for (auto i=0;i<n;i++) {
+        if(nums[i]!=1) {
+            mx = max(mx, i-pos);
+            pos = i+1;
+        }
+    }
+    mx = max(mx, n-pos);
+    return mx;
+}
+
+// TC: O(N)
+// SC: O(1)
